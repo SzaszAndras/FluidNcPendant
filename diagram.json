@@ -1,0 +1,40 @@
+{
+  "version": 1,
+  "author": "Jonathan Kan",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-esp32-devkit-v1", "id": "esp", "top": 62.3, "left": 4.6, "attrs": {} },
+    {
+      "type": "board-ili9341-cap-touch",
+      "id": "lcd1",
+      "top": -1.28,
+      "left": 302.34,
+      "rotate": 90,
+      "attrs": {}
+    },
+	{
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -64.8,
+      "left": -151.8,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX0", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX0", "$serialMonitor:TX", "", [] ],
+    [ "lcd1:GND", "esp:GND.1", "black", [ "h-28.8", "v106.75" ] ],
+    [ "lcd1:CS", "esp:D15", "green", [ "v0", "h-102.34", "v87.65" ] ],
+    [ "lcd1:RST", "esp:D4", "green", [ "h-48", "v58.55" ] ],
+    [ "lcd1:D/C", "esp:D2", "green", [ "h-57.6", "v59.35" ] ],
+    [ "lcd1:SCK", "esp:D18", "green", [ "v10.23", "h-117.02", "v-158.63" ] ],
+    [ "lcd1:MISO", "esp:D19", "green", [ "h-76.8", "v-38.3" ] ],
+    [ "lcd1:MOSI", "esp:D23", "green", [ "h-67.2", "v-56.65" ] ],
+    [ "esp:VIN", "lcd1:VCC", "red", [ "h-10.84", "v56.55", "h231.64", "v-181.35" ] ],
+    [ "lcd1:SCL", "esp:D32", "green", [ "h-38.4", "v-85.05" ] ],
+    [ "lcd1:SDA", "esp:D33", "green", [ "h-124.8", "v-66.8" ] ],
+	[ "bz1:1", "esp:GND.2", "black", [ "v0" ] ],
+    [ "bz1:2", "esp:D26", "green", [ "v0" ] ]
+  ],
+  "dependencies": {}
+}
